@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/navigation"
+        app:startDestination="@id/mainFragment">
+
+    <fragment
+            android:id="@+id/mainFragment"
+            android:name="com.example.cafe.MainFragment"
+            android:label="หน้าหลัก"
+            tools:layout="@layout/fragment_main">
+        <action
+                android:id="@+id/action_mainFragment_to_detailFragment2"
+                app:destination="@id/detailFragment" />
+        <action
+                android:id="@+id/action_mainFragment_to_searchfragment2"
+                app:destination="@id/searchfragment" />
+        <action
+                android:id="@+id/action_mainFragment_to_suggestFragment2"
+                app:destination="@id/suggestFragment" />
+
+    </fragment>
+    <fragment
+            android:id="@+id/detailFragment"
+            android:name="com.example.cafe.DetailFragment"
+            android:label="รายละเอียด">
+        <argument
+                android:name="nameThai"
+                app:argType="string" />
+        <action
+                android:id="@+id/action_detailFragment_to_mainFragment"
+                app:destination="@id/mainFragment"
+                app:launchSingleTop="true"
+                app:popUpTo="@+id/mainFragment"
+                app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+            android:id="@+id/searchfragment"
+            android:name="com.example.cafe.Searchfragment"
+            android:label="ค้นหา"
+            tools:layout="@layout/fragment_searchfragment" >
+        <action
+                android:id="@+id/action_searchfragment_to_detailFragment2"
+                app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/suggestFragment"
+            android:name="com.example.cafe.SuggestFragment"
+            android:label="แนะนำ"
+            tools:layout="@layout/fragment_suggest" >
+        <action
+                android:id="@+id/action_suggestFragment_to_detailFragment"
+                app:destination="@id/detailFragment" />
+        <action
+                android:id="@+id/action_suggestFragment_to_mainFragment"
+                app:destination="@id/mainFragment" />
+        <action
+                android:id="@+id/action_suggestFragment_to_searchfragment"
+                app:destination="@id/searchfragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/aboutFragment"
+            android:name="com.example.cafe.AboutFragment"
+            android:label="เกี่ยวกับ"
+            tools:layout="@layout/fragment_about" />
+</navigation>
